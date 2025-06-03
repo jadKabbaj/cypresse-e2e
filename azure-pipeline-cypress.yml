@@ -1,0 +1,29 @@
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+  # Step 1: Install all npm dependencies
+  - task: Npm@1
+    displayName: 'Install NPM packages'
+    inputs:
+      command: 'ci'  # uses `package-lock.json` for consistency
+
+  # Step 2: Manually install Cypress binary
+  - script: |
+      npx cypress install
+    displayName: 'Install Cypress binary'
+
+  # Step 3: Make Cypress binary executable
+  - script: |
+      chmod +x ./node_modules/.bin/cypress
+    displayName: 'Ensure Cypress binary is executable'
+
+  # Step 4: Run Cypress tests
+  - task: CmdLine@2
+    displayName: 'Run Cypress Tests'
+    inputs:
+      script: |
+        echo "ID: $(CYPRESS_TEST_ID_INTER)"
+        npx cypress run --spec "cypress/e2e/UseCaseComplet.cy.ts"
+      workingDirectory: '$(System.DefaultWorkingDirectory)'

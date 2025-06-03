@@ -1,0 +1,38 @@
+{
+  "site" : {
+    "libelleSite": "intoo",
+    "adresseSite": "5 Rue Paul Langevin 54320 Maxéville",
+    "instructionAcces": "Code interphone : 112233",
+    "etageSite": "1",
+    "animauxSurSite":"oui"
+  },
+  "client" : {
+    "nomClient": "Allard",
+    "prenomClient": "Eric"
+  },
+   "url" : {
+     "urlb2b": "https://b2b.recette.intoo.best/",
+     "urlb2cm": "https://b2cm.staging.seculib.intoo.best/",
+     "urlApi": "https://api.staging.seculib.intoo.best",
+     "urlb2bJKJ": "https://b2b.jkj.seculib.intoo.best/",
+     "urlb2cmJKJ": "https://b2cm.jkj.seculib.intoo.best/",
+     "urlApiJKJ": "https://api.jkj.seculib.intoo.best"
+   },
+  "identifiantsB2b" : {
+    "b2bUsername":"jeanregistre" ,
+    "b2bPassword": "6eb376d449c67b37397cb3e920c91180"
+  },
+  "infoArrivéeAgentAuSite" : {
+    "porteOuverte":false ,
+    "presencePersone": true,
+    "accesAuSite": true
+  },
+   "codeAppairage": {
+     "jkj": "IN2JKJ",
+     "stg":"IN2STG"
+   },
+
+  "delaiEntreEnvoieGeolocMS":10000,
+
+  "pointDeDepartAdress" : "13 Rue des Aulnes, 54320 Maxéville"
+}

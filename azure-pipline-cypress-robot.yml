@@ -1,0 +1,27 @@
+parameters:
+  - name: CYPRESS_TEST_ID_INTER
+    displayName: 'ID de test Cypress'
+    type: string
+    default: '2506-RXN'
+
+trigger: none  # Empêche les déclenchements automatiques
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: Npm@1
+    displayName: 'Install NPM packages'
+    inputs:
+      command: 'ci'
+
+  - script: |
+      npx cypress install
+    displayName: 'Install Cypress binary'
+
+  - task: CmdLine@2
+    displayName: 'Run Cypress Tests'
+    inputs:
+      script: |
+        echo "Test ID: ${{ parameters.CYPRESS_TEST_ID_INTER }}"
+        CYPRESS_TEST_ID_INTER=${{ parameters.CYPRESS_TEST_ID_INTER }} npx cypress run --spec "cypress/e2e/UseCaseAgentRespRobot.cy.ts"
